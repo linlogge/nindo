@@ -20,7 +20,9 @@ const colors = {};
 
 const radii = {};
 
-const shadows = {};
+const shadows = {
+  outline: "0 0 0 3px rgba(128, 90, 213, 0.6)",
+};
 
 const fonts = {
   body: "'Poppins', sans-serif",

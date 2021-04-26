@@ -4,7 +4,7 @@ import { FC } from "react";
 
 const Banner: FC = () => {
   return (
-    <Box rounded="md" bg="purple.500" p="10">
+    <Box shadow="base" rounded="base" bg="purple.500" p="10">
       <Stack align="center" spacing="5">
         <Text color="white">
           Für Agenturen, Management & Brands <Badge colorScheme="purple">Neu</Badge>

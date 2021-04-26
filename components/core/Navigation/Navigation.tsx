@@ -1,8 +1,6 @@
 import { Box, Container, Flex, Heading, Stack } from "@chakra-ui/layout";
 import { FC } from "react";
-import { AiFillYoutube as YouTube, AiFillInstagram as Instagram, AiFillFire as Fire } from "react-icons/ai";
-import { SiTiktok as TikTok, SiTwitter as Twitter, SiTwitch as Twitch } from "react-icons/si";
-import { RiCoupon2Fill as Coupon, RiSunFill as Sun, RiMoonFill as Moon } from "react-icons/ri";
+import { YouTube, Instagram, TikTok, Twitter, Twitch, Moon, Sun, Fire, Coupon } from "@components/icon";
 import { Input } from "@chakra-ui/input";
 import NavChartsItem from "./NavChartsItem";
 import NavItem from "./NavItem";

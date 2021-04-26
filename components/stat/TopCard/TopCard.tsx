@@ -15,7 +15,7 @@ const TopCard: FC<TopCardProps> = (props) => {
   const { title, items, icon, color } = props;
   return (
     <Box shadow="base" rounded="base" p="8" bg={mode("white", "black")}>
-      <Heading size="lg">
+      <Heading size="md">
         {title} {icon && <Icon as={icon} color={color} />}
       </Heading>
       <Stack mt="10" spacing="0">

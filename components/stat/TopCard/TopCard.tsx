@@ -14,7 +14,7 @@ interface TopCardProps {
 const TopCard: FC<TopCardProps> = (props) => {
   const { title, items, icon, color } = props;
   return (
-    <Box shadow="base" rounded="base" p="8" bg={mode("white", "black")}>
+    <Box shadow="base" rounded="base" p="8" bg={mode("white", "purple.800")}>
       <Heading size="md">
         {title} {icon && <Icon as={icon} color={color} />}
       </Heading>

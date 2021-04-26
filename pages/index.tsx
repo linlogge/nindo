@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { Box, Container, SimpleGrid } from "@chakra-ui/layout";
+import { Box, Container, Grid, GridItem, SimpleGrid } from "@chakra-ui/layout";
 import { Instagram, TikTok, Twitter, YouTube, Twitch } from "@components/icon";
 import DefaultLayout from "@components/layout";
 import { Banner } from "@components/misc";
@@ -17,19 +17,23 @@ export default function Home(data) {
       </Box>
       <Box as="section" mt="10">
         <Container maxW="container.xl">
-          <SimpleGrid columns={3} spacing={5}>
-            <TopCard items={youtube} title="YouTube" color="red.500" icon={YouTube} />
-            <TopCard items={instagram} title="Instagram" color="purple.500" icon={Instagram} />
-            <TopCard items={tikTok} title="TikTok" color="pink.500" icon={TikTok} />
-          </SimpleGrid>
-        </Container>
-      </Box>
-      <Box as="section" mt="5">
-        <Container maxW="container.xl">
-          <SimpleGrid columns={2} spacing={5}>
-            <TopCard items={twitter} title="Twitter" color="blue.500" icon={Twitter} />
-            <TopCard items={twitch} title="Twitch" color="purple.500" icon={Twitch} />
-          </SimpleGrid>
+          <Grid templateColumns="repeat(6, 1fr)" gap="5">
+            <GridItem colSpan={{ base: 6, md: 3, xl: 2 }}>
+              <TopCard items={youtube} title="YouTube" color="red.500" icon={YouTube} />
+            </GridItem>
+            <GridItem colSpan={{ base: 6, md: 3, xl: 2 }}>
+              <TopCard items={instagram} title="Instagram" color="purple.500" icon={Instagram} />
+            </GridItem>
+            <GridItem colSpan={{ base: 6, md: 3, xl: 2 }}>
+              <TopCard items={tikTok} title="TikTok" color="pink.500" icon={TikTok} />
+            </GridItem>
+            <GridItem colSpan={{ base: 6, md: 3 }}>
+              <TopCard items={twitter} title="Twitter" color="blue.500" icon={Twitter} />
+            </GridItem>
+            <GridItem colSpan={{ base: 6, xl: 3 }}>
+              <TopCard items={twitch} title="Twitch" color="purple.500" icon={Twitch} />
+            </GridItem>
+          </Grid>
         </Container>
       </Box>
     </>

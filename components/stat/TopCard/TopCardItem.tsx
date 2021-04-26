@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Center, LinkBox, LinkOverlay, Stack, Text } from "@chakra-ui/layout";
 import { abbreviateNumber } from "@lib/numbers";
 import { Avatar } from "@chakra-ui/avatar";
+import RouterLink from "next/link";
 
 export interface TopCardItemProps {
   avatarUrl: string;
@@ -22,11 +23,13 @@ const TopCardItem: FC<TopCardItemProps> = (props) => {
           <Text>{rank}</Text>
         </Center>
         <Stack direction="row" align="center" justify="space-between" w="full">
-          <LinkOverlay href={`/artist/${artistId}`} _hover={{ color: "purple.500" }}>
-            <Text fontWeight="bold" isTruncated>
-              {name}
-            </Text>
-          </LinkOverlay>
+          <RouterLink href={`/artist/${artistId}`} passHref>
+            <LinkOverlay _hover={{ color: "purple.500" }}>
+              <Text fontWeight="bold" isTruncated>
+                {name}
+              </Text>
+            </LinkOverlay>
+          </RouterLink>
           <Text>{abbreviateNumber(value)}</Text>
         </Stack>
       </Stack>

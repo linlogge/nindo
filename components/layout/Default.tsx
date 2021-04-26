@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { Header, Footer } from "@components/core";
+import { Footer, Navigation } from "@components/core";
 
 const DefaultLayout: FC = ({ children }) => {
   return (
     <>
-      <Header />
+      <Navigation />
       {children}
       <Footer />
     </>

@@ -21,11 +21,11 @@ const Header: FC = () => {
             </Heading>
           </Link>
           <Stack direction="row">
-            <NavChartsItem icon={<YouTube />} label="YouTube" href="/youtube" />
-            <NavChartsItem icon={<Instagram />} label="Instagram" href="/instagram" />
-            <NavChartsItem icon={<TikTok />} label="TikTok" href="/tiktok" />
-            <NavChartsItem icon={<Twitter />} label="Twitter" href="/twitter" />
-            <NavChartsItem icon={<Twitch />} label="Twitch" href="/twitch" />
+            <NavChartsItem icon={<YouTube />} label="YouTube" href="/charts/youtube" />
+            <NavChartsItem icon={<Instagram />} label="Instagram" href="/charts/instagram" />
+            <NavChartsItem icon={<TikTok />} label="TikTok" href="/charts/tiktok" />
+            <NavChartsItem icon={<Twitter />} label="Twitter" href="/charts/twitter" />
+            <NavChartsItem icon={<Twitch />} label="Twitch" href="/charts/twitch" />
           </Stack>
           <Stack direction="row">
             <NavItem icon={<Fire />} href="/viral">

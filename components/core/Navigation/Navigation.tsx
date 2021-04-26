@@ -6,6 +6,7 @@ import NavChartsItem from "./NavChartsItem";
 import NavItem from "./NavItem";
 import { IconButton } from "@chakra-ui/button";
 import { useColorMode } from "@chakra-ui/color-mode";
+import Link from "next/link";
 
 const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -14,7 +15,9 @@ const Header: FC = () => {
     <Box as="header" py="5">
       <Container maxW="container.xl">
         <Flex justify="space-between" align="center">
-          <Heading color="purple.500">Nindo</Heading>
+          <Link href="/" passHref>
+            <Heading as="a" color="purple.500">Nindo</Heading>
+          </Link>
           <Stack direction="row">
             <NavChartsItem icon={<YouTube />} label="YouTube" href="/youtube" />
             <NavChartsItem icon={<Instagram />} label="Instagram" href="/instagram" />

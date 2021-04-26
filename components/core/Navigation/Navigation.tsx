@@ -5,7 +5,7 @@ import { Input } from "@chakra-ui/input";
 import NavChartsItem from "./NavChartsItem";
 import NavItem from "./NavItem";
 import { IconButton } from "@chakra-ui/button";
-import { useColorMode } from "@chakra-ui/color-mode";
+import { useColorMode, useColorModeValue as mode } from "@chakra-ui/color-mode";
 import Link from "next/link";
 
 const Header: FC = () => {
@@ -36,7 +36,7 @@ const Header: FC = () => {
             </NavItem>
           </Stack>
           <Stack direction="row">
-            <Input placeholder="Suchen..." variant="filled" />
+            <Input placeholder="Suchen..." variant="filled" bg={mode("gray.200", "purple.800")} />
             <IconButton
               aria-label="Dark-Mode ein/ausschalten"
               icon={colorMode === "dark" ? <Sun /> : <Moon />}

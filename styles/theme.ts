@@ -12,9 +12,7 @@ const styles = {
 
 const components = {
   Heading: {
-    baseStyle: {
-      fontWeight: "normal",
-    },
+    baseStyle: {},
   },
 };
 
@@ -25,8 +23,8 @@ const radii = {};
 const shadows = {};
 
 const fonts = {
-  body: "'DM Sans', sans-serif",
-  heading: "'DM Serif Display', serif",
+  body: "'Poppins', sans-serif",
+  heading: "'Poppins', serif",
 };
 
 const sizes = {};

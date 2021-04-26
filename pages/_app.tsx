@@ -1,5 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import theme from "@styles/theme";
 import { FC } from "react";
+import "typeface-poppins";
 
 const Noop: FC = ({ children }) => <>{children}</>;
 
@@ -8,7 +10,7 @@ function App({ Component, pageProps }) {
 
   return (
     <>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <Layout>
           <Component {...pageProps} />
         </Layout>

@@ -9,6 +9,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.12",
     "@chakra-ui/react": "^1.6.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
@@ -17,7 +18,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
-    "typeface-poppins": "^1.1.13"
+    "typeface-inter": "^3.15.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.4",

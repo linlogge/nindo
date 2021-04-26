@@ -1,5 +1,8 @@
-import { Box, Container } from "@chakra-ui/layout";
+import { Button } from "@chakra-ui/button";
+import Icon from "@chakra-ui/icon";
+import { Box, Container, Grid, GridItem, Heading, List, ListItem, Stack } from "@chakra-ui/layout";
 import { Header } from "@components/core";
+import { YouTube } from "@components/icon";
 import DefaultLayout from "@components/layout";
 import { TopCard } from "@components/stat";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -16,10 +19,38 @@ export default function Charts({ data }) {
 
   return (
     <>
-      <Header>{platform}</Header>
-      <Box as="section">
-        <Container maxW="container.md">
-          <TopCard items={data} title="Abonnenten" />
+      <Box as="section" mt="10">
+        <Container maxW="container.xl">
+          <Grid templateColumns="repeat(4, 1fr)" columnGap="10">
+            <GridItem colSpan={1}>
+              <Stack spacing="14">
+                <Stack>
+                  <Heading>YouTube</Heading>
+                  <Icon as={YouTube} color="red.500" boxSize="10" />
+                </Stack>
+                <List spacing="2">
+                  <ListItem>
+                    <Button colorScheme="purple">Views</Button>
+                  </ListItem>
+                  <ListItem>
+                    <Button>Likes</Button>
+                  </ListItem>
+                  <ListItem>
+                    <Button>Neue Abos</Button>
+                  </ListItem>
+                  <ListItem>
+                    <Button>Abos</Button>
+                  </ListItem>
+                  <ListItem>
+                    <Button>YouTube-Rating</Button>
+                  </ListItem>
+                </List>
+              </Stack>
+            </GridItem>
+            <GridItem colSpan={3}>
+              <TopCard items={data} title="Views" />
+            </GridItem>
+          </Grid>
         </Container>
       </Box>
     </>

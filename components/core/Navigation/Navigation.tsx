@@ -30,8 +30,7 @@ const Header: FC = () => {
           </Stack>
           <Stack direction="row">
             <Input placeholder="Suchen..." variant="filled" />
-            {colorMode === "light" && <IconButton aria-label="Dark-Mode einschalten" icon={<Moon />} variant="ghost" colorScheme="purple" onClick={toggleColorMode} />}
-            {colorMode === "dark" && <IconButton aria-label="Dark-Mode ausschalten" icon={<Sun />} variant="ghost" colorScheme="purple" onClick={toggleColorMode} />}
+            <IconButton aria-label="Dark-Mode ausschalten" icon={colorMode === "dark" ? <Sun /> : <Moon />} variant="ghost" colorScheme="purple" onClick={toggleColorMode} />
           </Stack>
         </Flex>
       </Container>

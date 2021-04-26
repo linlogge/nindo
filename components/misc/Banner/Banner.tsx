@@ -6,12 +6,21 @@ const Banner: FC = () => {
   return (
     <Box rounded="md" bg="purple.500" p="10">
       <Stack align="center" spacing="5">
-        <Text color="white">Für Agenturen, Management & Brands <Badge colorScheme="purple">Neu</Badge></Text>
-        <Heading color="white" textAlign="center" size="2xl"><Text as="span" color="purple.200">Nindo</Text> Professional</Heading>
-        <Button colorScheme="pink" size="lg">Mehr erfahren</Button>
+        <Text color="white">
+          Für Agenturen, Management & Brands <Badge colorScheme="purple">Neu</Badge>
+        </Text>
+        <Heading color="white" textAlign="center" size="2xl">
+          <Text as="span" color="purple.200">
+            Nindo
+          </Text>{" "}
+          Professional
+        </Heading>
+        <Button colorScheme="pink" size="lg">
+          Mehr erfahren
+        </Button>
       </Stack>
     </Box>
-  )
-}
+  );
+};
 
 export default Banner;

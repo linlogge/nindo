@@ -16,7 +16,7 @@ const NavItem: FC<NavItemProps> = (props) => {
         {children}
       </Button>
     </Link>
-  )
-}
+  );
+};
 
 export default NavItem;

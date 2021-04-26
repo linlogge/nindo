@@ -5,10 +5,10 @@ const DefaultLayout: FC = ({ children }) => {
   return (
     <>
       <Header />
-      { children}
+      {children}
       <Footer />
     </>
-  )
-}
+  );
+};
 
 export default DefaultLayout;

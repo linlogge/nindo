@@ -1,10 +1,7 @@
 import DefaultLayout from "@components/layout";
 
 export default function YouTube() {
-  return (
-    <>
-    </>
-  )
+  return <></>;
 }
 
 YouTube.Layout = DefaultLayout;

@@ -16,7 +16,9 @@ const Header: FC = () => {
       <Container maxW="container.xl">
         <Flex justify="space-between" align="center">
           <Link href="/" passHref>
-            <Heading as="a" color="purple.500">Nindo</Heading>
+            <Heading as="a" color="purple.500">
+              Nindo
+            </Heading>
           </Link>
           <Stack direction="row">
             <NavChartsItem icon={<YouTube />} label="YouTube" href="/youtube" />
@@ -26,17 +28,27 @@ const Header: FC = () => {
             <NavChartsItem icon={<Twitch />} label="Twitch" href="/twitch" />
           </Stack>
           <Stack direction="row">
-            <NavItem icon={<Fire />} href="/viral">Viral</NavItem>
-            <NavItem icon={<Coupon />} href="/viral">Rabatt</NavItem>
+            <NavItem icon={<Fire />} href="/viral">
+              Viral
+            </NavItem>
+            <NavItem icon={<Coupon />} href="/viral">
+              Rabatt
+            </NavItem>
           </Stack>
           <Stack direction="row">
             <Input placeholder="Suchen..." variant="filled" />
-            <IconButton aria-label="Dark-Mode ein/ausschalten" icon={colorMode === "dark" ? <Sun /> : <Moon />} variant="ghost" colorScheme="purple" onClick={toggleColorMode} />
+            <IconButton
+              aria-label="Dark-Mode ein/ausschalten"
+              icon={colorMode === "dark" ? <Sun /> : <Moon />}
+              variant="ghost"
+              colorScheme="purple"
+              onClick={toggleColorMode}
+            />
           </Stack>
         </Flex>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
 export default Header;

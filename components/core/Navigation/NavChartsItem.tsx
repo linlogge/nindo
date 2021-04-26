@@ -15,7 +15,7 @@ const NavChartsItem: FC<NavChartsItemProps> = (props) => {
     <Link href={href} passHref>
       <IconButton as="a" icon={icon} aria-label={label} variant="ghost" colorScheme="purple" />
     </Link>
-  )
-}
+  );
+};
 
 export default NavChartsItem;

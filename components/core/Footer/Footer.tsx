@@ -17,7 +17,7 @@ const Footer: FC = () => {
         <Text color="gray.500">&copy; {year} Nindo GmbH</Text>
       </Stack>
     </Box>
-  )
-}
+  );
+};
 
 export default Footer;

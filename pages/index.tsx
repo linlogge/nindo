@@ -19,19 +19,49 @@ export default function Home(data) {
         <Container maxW="container.xl">
           <Grid templateColumns="repeat(6, 1fr)" gap="5">
             <GridItem colSpan={{ base: 6, md: 3, xl: 2 }}>
-              <TopCard items={youtube} title="YouTube" color="red.500" icon={YouTube} />
+              <TopCard
+                items={youtube}
+                title="YouTube"
+                color="red.500"
+                icon={YouTube}
+                description="Nach Views der letzten 5 Tage"
+              />
             </GridItem>
             <GridItem colSpan={{ base: 6, md: 3, xl: 2 }}>
-              <TopCard items={instagram} title="Instagram" color="purple.500" icon={Instagram} />
+              <TopCard
+                items={instagram}
+                title="Instagram"
+                color="purple.500"
+                icon={Instagram}
+                description="Nach Likes der letzten 5 Tage"
+              />
             </GridItem>
             <GridItem colSpan={{ base: 6, md: 3, xl: 2 }}>
-              <TopCard items={tikTok} title="TikTok" color="pink.500" icon={TikTok} />
+              <TopCard
+                items={tikTok}
+                title="TikTok"
+                color="pink.500"
+                icon={TikTok}
+                description="Nach Likes der letzten 5 Tage"
+              />
             </GridItem>
             <GridItem colSpan={{ base: 6, md: 3 }}>
-              <TopCard items={twitter} title="Twitter" color="blue.500" icon={Twitter} />
+              <TopCard
+                items={twitter}
+                title="Twitter"
+                color="blue.500"
+                icon={Twitter}
+                description="Nach Likes der letzten 5 Tage"
+              />
             </GridItem>
             <GridItem colSpan={{ base: 6, xl: 3 }}>
-              <TopCard items={twitch} title="Twitch" color="purple.500" icon={Twitch} />
+              <TopCard
+                items={twitch}
+                title="Twitch"
+                color="purple.500"
+                icon={Twitch}
+                description="Nach Zuschauern der letzten 5 Tage"
+              />
             </GridItem>
           </Grid>
         </Container>

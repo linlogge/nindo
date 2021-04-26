@@ -9,10 +9,11 @@ interface TopCardProps {
   title?: string;
   icon?: FC;
   color?: string;
+  description?: string;
 }
 
 const TopCard: FC<TopCardProps> = (props) => {
-  const { title, items, icon, color } = props;
+  const { title, items, icon, color, description } = props;
   return (
     <Box shadow="base" rounded="lg" p="8" bg={mode("white", "purple.800")}>
       {title && (
@@ -20,6 +21,7 @@ const TopCard: FC<TopCardProps> = (props) => {
           {title} {icon && <Icon as={icon} color={color} />}
         </Heading>
       )}
+      {description && <Text mt="1">{description}</Text>}
       <Stack mt="10" spacing="0">
         {items.map((item, i) => (
           <TopCardItem {...item} key={i} />

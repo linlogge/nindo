@@ -8,9 +8,9 @@ import { Input } from "@chakra-ui/input";
 
 const Header: FC = () => {
   return (
-    <Box as="header" py="3">
+    <Box as="header" py="5">
       <Container maxW="container.xl">
-        <Flex justify="space-between">
+        <Flex justify="space-between" align="center">
           <Heading color="purple.500">Nindo</Heading>
           <Stack direction="row">
             <IconButton icon={<YouTube />} aria-label="YouTube" variant="ghost" colorScheme="purple" />

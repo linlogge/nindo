@@ -8,7 +8,7 @@ const Banner: FC = () => {
     <Box shadow="base" rounded="base" bg="purple.500" p="10">
       <Stack align="center" spacing="5">
         <Text color="white">
-          Für Agenturen, Management & Brands <Badge colorScheme="purple">Neu</Badge>
+          Für Agenturen, Managements &amp; Brands <Badge colorScheme="purple">Neu</Badge>
         </Text>
         <Heading color="white" textAlign="center" size="2xl">
           <Text as="span" color="purple.200">
@@ -16,7 +16,7 @@ const Banner: FC = () => {
           </Text>{" "}
           Professional
         </Heading>
-        <Button colorScheme="pink" size="lg" rightIcon={<ArrowForwardIcon />}>
+        <Button as="a" href="https://your.nindo.de" target="_blank" colorScheme="pink" size="lg" rightIcon={<ArrowForwardIcon />}>
           Mehr erfahren
         </Button>
       </Stack>

@@ -30,7 +30,7 @@ const Header: FC = () => {
           </Stack>
           <Stack direction="row">
             <Input placeholder="Suchen..." variant="filled" />
-            <IconButton aria-label="Dark-Mode ausschalten" icon={colorMode === "dark" ? <Sun /> : <Moon />} variant="ghost" colorScheme="purple" onClick={toggleColorMode} />
+            <IconButton aria-label="Dark-Mode ein/ausschalten" icon={colorMode === "dark" ? <Sun /> : <Moon />} variant="ghost" colorScheme="purple" onClick={toggleColorMode} />
           </Stack>
         </Flex>
       </Container>

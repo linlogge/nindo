@@ -1,4 +1,5 @@
 import { Button } from "@chakra-ui/button";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Badge, Box, Heading, Stack, Text } from "@chakra-ui/layout";
 import { FC } from "react";
 
@@ -15,7 +16,7 @@ const Banner: FC = () => {
           </Text>{" "}
           Professional
         </Heading>
-        <Button colorScheme="pink" size="lg">
+        <Button colorScheme="pink" size="lg" rightIcon={<ArrowForwardIcon />}>
           Mehr erfahren
         </Button>
       </Stack>

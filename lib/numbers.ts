@@ -7,20 +7,12 @@ const defaultOptions = {
   symbols: ["", "K", "M", "G", "T", "P", "E"],
 };
 
-export function abbreviateNumber(
-  num: number,
-  digit: number = 1,
-  options?: Options | Options["symbols"],
-): string {
+export function abbreviateNumber(num: number, digit: number = 1, options?: Options | Options["symbols"]): string {
   if (Array.isArray(options)) {
     options = { symbols: options };
   }
 
-  const { symbols, padding }: Required<Options> = Object.assign(
-    {},
-    defaultOptions,
-    options,
-  );
+  const { symbols, padding }: Required<Options> = Object.assign({}, defaultOptions, options);
 
   const sign = Math.sign(num) >= 0;
   num = Math.abs(num);

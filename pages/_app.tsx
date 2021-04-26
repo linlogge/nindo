@@ -1,7 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "@styles/theme";
 import { FC } from "react";
-import "typeface-poppins";
+import "typeface-inter";
 
 const Noop: FC = ({ children }) => <>{children}</>;
 

@@ -5,7 +5,7 @@ const styles = {
   global: (props) => ({
     body: {
       color: mode("purple.900", "white")(props),
-      background: mode("white", "purple.900")(props),
+      background: mode("gray.50", "purple.900")(props),
     },
   }),
 };
@@ -25,8 +25,8 @@ const shadows = {
 };
 
 const fonts = {
-  body: "'Poppins', sans-serif",
-  heading: "'Poppins', serif",
+  body: "'Inter', sans-serif",
+  heading: "'Inter', serif",
 };
 
 const sizes = {};

@@ -1,5 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "@styles/theme";
+import { Head } from "@components/core";
 import { FC } from "react";
 import "typeface-inter";
 
@@ -10,6 +11,7 @@ function App({ Component, pageProps }) {
 
   return (
     <>
+      <Head />
       <ChakraProvider theme={theme}>
         <Layout>
           <Component {...pageProps} />

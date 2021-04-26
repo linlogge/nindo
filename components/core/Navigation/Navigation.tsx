@@ -2,12 +2,16 @@ import { Box, Container, Flex, Heading, Stack } from "@chakra-ui/layout";
 import { FC } from "react";
 import { AiFillYoutube as YouTube, AiFillInstagram as Instagram, AiFillFire as Fire } from "react-icons/ai";
 import { SiTiktok as TikTok, SiTwitter as Twitter, SiTwitch as Twitch } from "react-icons/si";
-import { RiCoupon2Fill as Coupon } from "react-icons/ri";
+import { RiCoupon2Fill as Coupon, RiSunFill as Sun, RiMoonFill as Moon } from "react-icons/ri";
 import { Input } from "@chakra-ui/input";
 import NavChartsItem from "./NavChartsItem";
 import NavItem from "./NavItem";
+import { IconButton } from "@chakra-ui/button";
+import { useColorMode } from "@chakra-ui/color-mode";
 
 const Header: FC = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Box as="header" py="5">
       <Container maxW="container.xl">
@@ -24,9 +28,11 @@ const Header: FC = () => {
             <NavItem icon={<Fire />} href="/viral">Viral</NavItem>
             <NavItem icon={<Coupon />} href="/viral">Rabatt</NavItem>
           </Stack>
-          <Box>
+          <Stack direction="row">
             <Input placeholder="Suchen..." variant="filled" />
-          </Box>
+            {colorMode === "light" && <IconButton aria-label="Dark-Mode einschalten" icon={<Moon />} variant="ghost" colorScheme="purple" onClick={toggleColorMode} />}
+            {colorMode === "dark" && <IconButton aria-label="Dark-Mode ausschalten" icon={<Sun />} variant="ghost" colorScheme="purple" onClick={toggleColorMode} />}
+          </Stack>
         </Flex>
       </Container>
     </Box>

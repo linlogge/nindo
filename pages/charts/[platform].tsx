@@ -11,10 +11,10 @@ import PageNotFound from "pages/404";
 
 export default function Charts({ data }) {
   const router = useRouter();
-  const { platform } = router.query
+  const { platform } = router.query;
 
   if (router.isFallback) {
-    return <PageNotFound />
+    return <PageNotFound />;
   }
 
   return (
@@ -54,7 +54,7 @@ export default function Charts({ data }) {
         </Container>
       </Box>
     </>
-  )
+  );
 }
 
 Charts.Layout = DefaultLayout;
@@ -79,7 +79,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      data
+      data,
     },
     revalidate: 300,
   };
@@ -89,7 +89,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = ["youtube", "instagram", "tiktok", "twitter", "twitch"];
 
   return {
-    paths: paths.map(platform => {
+    paths: paths.map((platform) => {
       return {
         params: {
           platform,

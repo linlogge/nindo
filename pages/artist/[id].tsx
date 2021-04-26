@@ -4,7 +4,7 @@ import { Box, Container, Heading, Stack, Text, Wrap } from "@chakra-ui/layout";
 import { Tag } from "@chakra-ui/tag";
 import { Instagram, TikTok, Twitch, Twitter, YouTube } from "@components/icon";
 import DefaultLayout from "@components/layout";
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps } from "next";
 import { useColorModeValue as mode } from "@chakra-ui/color-mode";
 import { NextSeo } from "next-seo";
 
@@ -24,7 +24,7 @@ export default function Artist({ artist }) {
                   <Heading>{name}</Heading>
                   {genres && (
                     <Stack direction="row">
-                      {genres.map(genre => (
+                      {genres.map((genre) => (
                         <Tag colorScheme="purple">{genre}</Tag>
                       ))}
                     </Stack>
@@ -39,35 +39,35 @@ export default function Artist({ artist }) {
                         <Button colorScheme="red" variant="ghost" leftIcon={<YouTube />}>
                           {channel.name}
                         </Button>
-                      )
+                      );
                     }
                     case "instagram": {
                       return (
                         <Button colorScheme="purple" variant="ghost" leftIcon={<Instagram />}>
                           {channel.name}
                         </Button>
-                      )
+                      );
                     }
                     case "tiktok": {
                       return (
                         <Button colorScheme="pink" variant="ghost" leftIcon={<TikTok />}>
                           {channel.name}
                         </Button>
-                      )
+                      );
                     }
                     case "twitter": {
                       return (
                         <Button colorScheme="blue" variant="ghost" leftIcon={<Twitter />}>
                           {channel.name}
                         </Button>
-                      )
+                      );
                     }
                     case "twitch": {
                       return (
                         <Button colorScheme="purple" variant="ghost" leftIcon={<Twitch />}>
                           {channel.name}
                         </Button>
-                      )
+                      );
                     }
                   }
                 })}
@@ -77,21 +77,21 @@ export default function Artist({ artist }) {
         </Container>
       </Box>
     </>
-  )
+  );
 }
 
 Artist.Layout = DefaultLayout;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const { id: artistId } = params;
-  const data = await fetch(`https://api.nindo.de/artist/${artistId}`).then(res => res.json())
+  const data = await fetch(`https://api.nindo.de/artist/${artistId}`).then((res) => res.json());
   const { name, avatar, _genres, _channels } = data;
 
-  const artist = { name, avatarUrl: avatar, genres: _genres.map((genre) => genre.name), channels: _channels }
+  const artist = { name, avatarUrl: avatar, genres: _genres.map((genre) => genre.name), channels: _channels };
 
   return {
     props: {
       artist,
-    }
-  }
-}
+    },
+  };
+};

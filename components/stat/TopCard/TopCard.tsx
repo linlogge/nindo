@@ -15,9 +15,11 @@ const TopCard: FC<TopCardProps> = (props) => {
   const { title, items, icon, color } = props;
   return (
     <Box shadow="base" rounded="lg" p="8" bg={mode("white", "purple.800")}>
-      {title && <Heading size="md">
-        {title} {icon && <Icon as={icon} color={color} />}
-      </Heading>}
+      {title && (
+        <Heading size="md">
+          {title} {icon && <Icon as={icon} color={color} />}
+        </Heading>
+      )}
       <Stack mt="10" spacing="0">
         {items.map((item, i) => (
           <TopCardItem {...item} key={i} />

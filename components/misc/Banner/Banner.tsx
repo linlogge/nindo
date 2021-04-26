@@ -16,7 +16,14 @@ const Banner: FC = () => {
           </Text>{" "}
           Professional
         </Heading>
-        <Button as="a" href="https://your.nindo.de" target="_blank" colorScheme="pink" size="lg" rightIcon={<ArrowForwardIcon />}>
+        <Button
+          as="a"
+          href="https://your.nindo.de"
+          target="_blank"
+          colorScheme="pink"
+          size="lg"
+          rightIcon={<ArrowForwardIcon />}
+        >
           Mehr erfahren
         </Button>
       </Stack>

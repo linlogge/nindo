@@ -57,7 +57,7 @@ export const SearchForm: FC = () => {
           <ModalHeader>Suche</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Input value={searchValue} onChange={handleChange} size="lg" ref={initialRef} />
+            <Input value={searchValue} onChange={handleChange} size="lg" ref={initialRef} variant="filled" />
           </ModalBody>
           {data && (
             <ModalBody>

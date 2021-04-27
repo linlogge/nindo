@@ -61,20 +61,24 @@ export const SearchForm: FC = () => {
           </ModalBody>
           {data && (
             <ModalBody>
-              <Stack spacing="0">
-                {data.map((artist, i) => (
-                  <LinkBox py="1">
-                    <Stack direction="row" justify="space-between" align="center" key={i}>
-                      <Avatar src={artist.avatar} />
-                      <Link href={`/artist/${artist.id}`} passHref>
-                        <LinkOverlay onClick={onClose} _hover={{ color: "purple.500" }}>
-                          <Text fontWeight="bold">{artist.name}</Text>
-                        </LinkOverlay>
-                      </Link>
-                    </Stack>
-                  </LinkBox>
-                ))}
-              </Stack>
+              {data.length > 0 ? (
+                <Stack spacing="0">
+                  {data.map((artist, i) => (
+                    <LinkBox py="1">
+                      <Stack direction="row" justify="space-between" align="center" key={i}>
+                        <Avatar src={artist.avatar} />
+                        <Link href={`/artist/${artist.id}`} passHref>
+                          <LinkOverlay onClick={onClose} _hover={{ color: "purple.500" }}>
+                            <Text fontWeight="bold">{artist.name}</Text>
+                          </LinkOverlay>
+                        </Link>
+                      </Stack>
+                    </LinkBox>
+                  ))}
+                </Stack>
+              ) : (
+                <Text>Es konnten keine Ergebnisse gefunden werden.</Text>
+              )}
             </ModalBody>
           )}
           <ModalFooter />

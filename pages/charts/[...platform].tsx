@@ -12,12 +12,14 @@ import platforms from "@config/platforms";
 export default function Charts({ data }) {
   const router = useRouter();
   const { platform } = router.query;
+
+  if (router.isFallback || platform.length != 2 || !data) {
+    return <PageNotFound />;
+  }
+
   const { charts, name, icon } = platforms.find((p) => p.id === platform[0])
   const filterOption = charts.find((c) => c.id === platform[1])
 
-  if (router.isFallback) {
-    return <PageNotFound />;
-  }
 
   return (
     <>
@@ -69,6 +71,15 @@ async function getData(url: string) {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { platform } = params;
+
+  if (platform.length != 2) {
+    return {
+      props: {
+        data: null,
+      }
+    }
+  }
+
   const data = await getData(`https://api.nindo.de/ranks/charts/${platform[0]}/${platform[1]}/big`);
 
   return {

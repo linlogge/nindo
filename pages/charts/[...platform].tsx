@@ -1,17 +1,19 @@
 import { Button } from "@chakra-ui/button";
 import Icon from "@chakra-ui/icon";
 import { Box, Container, Grid, GridItem, Heading, List, ListItem, Stack } from "@chakra-ui/layout";
-import { Header } from "@components/core";
-import { YouTube } from "@components/icon";
+import RouterLink from "next/link";
 import DefaultLayout from "@components/layout";
 import { TopCard } from "@components/stat";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import PageNotFound from "pages/404";
+import platforms from "@config/platforms";
 
 export default function Charts({ data }) {
   const router = useRouter();
   const { platform } = router.query;
+  const { charts, name, icon } = platforms.find((p) => p.id === platform[0])
+  const filterOption = charts.find((c) => c.id === platform[1])
 
   if (router.isFallback) {
     return <PageNotFound />;
@@ -25,30 +27,22 @@ export default function Charts({ data }) {
             <GridItem colSpan={1}>
               <Stack spacing="14">
                 <Stack>
-                  <Heading>YouTube</Heading>
-                  <Icon as={YouTube} color="red.500" boxSize="10" />
+                  <Heading>{name}</Heading>
+                  <Icon as={icon} color="purple.500" boxSize="10" />
                 </Stack>
                 <List spacing="2">
-                  <ListItem>
-                    <Button colorScheme="purple">Views</Button>
-                  </ListItem>
-                  <ListItem>
-                    <Button>Likes</Button>
-                  </ListItem>
-                  <ListItem>
-                    <Button>Neue Abos</Button>
-                  </ListItem>
-                  <ListItem>
-                    <Button>Abos</Button>
-                  </ListItem>
-                  <ListItem>
-                    <Button>YouTube-Rating</Button>
-                  </ListItem>
+                  {charts.map(({ name, id }) => (
+                    <ListItem>
+                      <RouterLink href={`/charts/${platform[0]}/${id}`} passHref>
+                        <Button as="a" colorScheme={id === platform[1] ? "purple" : undefined}>{name}</Button>
+                      </RouterLink>
+                    </ListItem>
+                  ))}
                 </List>
               </Stack>
             </GridItem>
             <GridItem colSpan={3}>
-              <TopCard items={data} title="Views" />
+              <TopCard items={data} title={filterOption.name} />
             </GridItem>
           </Grid>
         </Container>
@@ -74,8 +68,8 @@ async function getData(url: string) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // const { platform } = params;
-  const data = await getData("https://api.nindo.de/ranks/charts/youtube/rankViews/big");
+  const { platform } = params;
+  const data = await getData(`https://api.nindo.de/ranks/charts/${platform[0]}/${platform[1]}/big`);
 
   return {
     props: {
@@ -86,7 +80,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = ["youtube", "instagram", "tiktok", "twitter", "twitch"];
+  let paths = [];
+  platforms.forEach((platform) => {
+    platform.charts.forEach((chart) => {
+      paths.push([platform.id, chart.id])
+    })
+  })
+
+  console.log(paths)
 
   return {
     paths: paths.map((platform) => {

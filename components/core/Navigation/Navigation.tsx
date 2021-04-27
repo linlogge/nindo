@@ -7,6 +7,7 @@ import { IconButton } from "@chakra-ui/button";
 import { useColorMode, useColorModeValue as mode } from "@chakra-ui/color-mode";
 import Link from "next/link";
 import SearchForm from "./SearchForm";
+import platforms from "@config/platforms";
 
 const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -21,11 +22,9 @@ const Header: FC = () => {
             </Heading>
           </Link>
           <Stack direction="row">
-            <NavChartsItem icon={<YouTube />} label="YouTube" href="/charts/youtube" />
-            <NavChartsItem icon={<Instagram />} label="Instagram" href="/charts/instagram" />
-            <NavChartsItem icon={<TikTok />} label="TikTok" href="/charts/tiktok" />
-            <NavChartsItem icon={<Twitter />} label="Twitter" href="/charts/twitter" />
-            <NavChartsItem icon={<Twitch />} label="Twitch" href="/charts/twitch" />
+            {platforms.map(({ icon: Icon, name, id, charts }, i) => (
+              <NavChartsItem icon={<Icon />} label={name} href={`/charts/${id}/${charts[0].id}`} key={i} />
+            ))}
           </Stack>
           <Stack direction="row">
             <NavItem icon={<Fire />} href="/viral">

@@ -1,12 +1,12 @@
 import { Box, Container, Flex, Heading, Stack } from "@chakra-ui/layout";
 import { FC } from "react";
 import { YouTube, Instagram, TikTok, Twitter, Twitch, Moon, Sun, Fire, Coupon } from "@components/icon";
-import { Input } from "@chakra-ui/input";
 import NavChartsItem from "./NavChartsItem";
 import NavItem from "./NavItem";
 import { IconButton } from "@chakra-ui/button";
 import { useColorMode, useColorModeValue as mode } from "@chakra-ui/color-mode";
 import Link from "next/link";
+import SearchForm from "./SearchForm";
 
 const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -36,7 +36,7 @@ const Header: FC = () => {
             </NavItem>
           </Stack>
           <Stack direction="row">
-            <Input placeholder="Suchen..." variant="filled" bg={mode("gray.200", "purple.800")} />
+            <SearchForm />
             <IconButton
               aria-label="Dark-Mode ein/ausschalten"
               icon={colorMode === "dark" ? <Sun /> : <Moon />}

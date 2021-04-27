@@ -87,8 +87,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     })
   })
 
-  console.log(paths)
-
   return {
     paths: paths.map((platform) => {
       return {

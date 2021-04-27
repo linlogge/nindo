@@ -32,39 +32,39 @@ export default function Artist({ artist }) {
                 </Stack>
               </Stack>
               <Wrap>
-                {channels.map((channel) => {
+                {channels.map((channel, i) => {
                   switch (channel.platform) {
                     case "youtube": {
                       return (
-                        <Button colorScheme="red" variant="ghost" leftIcon={<YouTube />}>
+                        <Button colorScheme="red" variant="ghost" leftIcon={<YouTube />} key={i}>
                           {channel.name}
                         </Button>
                       );
                     }
                     case "instagram": {
                       return (
-                        <Button colorScheme="purple" variant="ghost" leftIcon={<Instagram />}>
+                        <Button colorScheme="purple" variant="ghost" leftIcon={<Instagram />} key={i}>
                           {channel.name}
                         </Button>
                       );
                     }
                     case "tiktok": {
                       return (
-                        <Button colorScheme="pink" variant="ghost" leftIcon={<TikTok />}>
+                        <Button colorScheme="pink" variant="ghost" leftIcon={<TikTok />} key={i}>
                           {channel.name}
                         </Button>
                       );
                     }
                     case "twitter": {
                       return (
-                        <Button colorScheme="blue" variant="ghost" leftIcon={<Twitter />}>
+                        <Button colorScheme="blue" variant="ghost" leftIcon={<Twitter />} key={i}>
                           {channel.name}
                         </Button>
                       );
                     }
                     case "twitch": {
                       return (
-                        <Button colorScheme="purple" variant="ghost" leftIcon={<Twitch />}>
+                        <Button colorScheme="purple" variant="ghost" leftIcon={<Twitch />} key={i}>
                           {channel.name}
                         </Button>
                       );

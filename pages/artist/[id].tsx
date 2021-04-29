@@ -14,13 +14,14 @@ interface PlatformButtonProps {
   platformId: PlatformId;
   channel: any;
   onClick: () => void;
+  isActive: boolean;
 }
 
-const PlatformButton: FC<PlatformButtonProps> = ({ platformId, onClick, channel }) => {
+const PlatformButton: FC<PlatformButtonProps> = ({ platformId, onClick, channel, isActive }) => {
   const { icon: Icon, colorScheme, toReadableName } = getPlatformById(platformId);
 
   return (
-    <Button colorScheme={colorScheme} variant="ghost" leftIcon={<Icon />} onClick={onClick}>
+    <Button colorScheme={colorScheme} variant="ghost" isActive={isActive} leftIcon={<Icon />} onClick={onClick}>
       {toReadableName(channel)}
     </Button>
   );
@@ -58,6 +59,7 @@ export default function Artist({ artist }) {
                     platformId={channel.platform}
                     onClick={() => setActiveChannel(i)}
                     channel={channel}
+                    isActive={channel.id === channels[activeChannel].id}
                   />
                 ))}
               </Wrap>

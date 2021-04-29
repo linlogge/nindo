@@ -23,7 +23,7 @@ export default function Charts({ data }) {
 
   return (
     <>
-      <NextSeo title={`${name} Charts`}/>
+      <NextSeo title={`${name} Charts`} />
       <Box as="section" mt="10">
         <Container maxW="container.xl">
           <Grid templateColumns="repeat(4, 1fr)" columnGap="10">
@@ -34,10 +34,10 @@ export default function Charts({ data }) {
                   <Icon as={icon} color="purple.500" boxSize="10" />
                 </Stack>
                 <List spacing="2">
-                  {charts.map(({ name, id }) => (
-                    <ListItem>
+                  {charts.map(({ name, id }, i) => (
+                    <ListItem key={i}>
                       <RouterLink href={`/charts/${platform[0]}/${id}`} passHref>
-                        <Button as="a" colorScheme={id === platform[1] ? "purple" : undefined}>
+                        <Button as="a" colorScheme="purple" variant="ghost" isActive={platform[1] === id}>
                           {name}
                         </Button>
                       </RouterLink>

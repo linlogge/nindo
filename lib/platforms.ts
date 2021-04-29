@@ -9,6 +9,7 @@ interface Platform {
   colorScheme: string;
   icon: FC;
   toReadableName: (channel) => string;
+  chartsOptions: [string, string][];
 }
 
 const youtube: Platform = {
@@ -17,6 +18,7 @@ const youtube: Platform = {
   colorScheme: "red",
   icon: YouTube,
   toReadableName: (channel) => channel.name,
+  chartsOptions: [["Views", "rankViews"]],
 };
 
 const instagram: Platform = {
@@ -25,6 +27,7 @@ const instagram: Platform = {
   colorScheme: "purple",
   icon: Instagram,
   toReadableName: (channel) => `@${channel.channelID}`,
+  chartsOptions: [["Likes", "rankLikes"]],
 };
 
 const tiktok: Platform = {
@@ -33,6 +36,7 @@ const tiktok: Platform = {
   colorScheme: "pink",
   icon: TikTok,
   toReadableName: (channel) => `@${channel.channelID}`,
+  chartsOptions: [["Likes", "rankLikes"]],
 };
 
 const twitter: Platform = {
@@ -41,6 +45,7 @@ const twitter: Platform = {
   colorScheme: "blue",
   icon: Twitter,
   toReadableName: (channel) => `@${channel.channelID}`,
+  chartsOptions: [["Likes", "rankLikes"]],
 };
 
 const twitch: Platform = {
@@ -49,9 +54,10 @@ const twitch: Platform = {
   colorScheme: "purple",
   icon: Twitch,
   toReadableName: (channel) => `${channel.channelID}`,
+  chartsOptions: [["Zuschauer", "rankViewer"]],
 };
 
-const platforms = [youtube, instagram, tiktok, twitter, twitch];
+export const platforms = [youtube, instagram, tiktok, twitter, twitch];
 
 export function getPlatformById(id: PlatformId): Platform {
   return platforms.find((platform) => platform.id === id);

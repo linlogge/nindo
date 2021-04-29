@@ -1,13 +1,12 @@
 import { Box, Container, Flex, Heading, Stack } from "@chakra-ui/layout";
 import { FC } from "react";
-import { YouTube, Instagram, TikTok, Twitter, Twitch, Moon, Sun, Fire, Coupon } from "@components/icon";
-import NavChartsItem from "./NavChartsItem";
+import { Moon, Sun, Fire, Coupon } from "@components/icon";
+import NavChartsItems from "./NavChartsItems";
 import NavItem from "./NavItem";
 import { IconButton } from "@chakra-ui/button";
 import { useColorMode, useColorModeValue as mode } from "@chakra-ui/color-mode";
 import Link from "next/link";
 import SearchForm from "./SearchForm";
-import platforms from "@config/platforms";
 
 const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -21,11 +20,7 @@ const Header: FC = () => {
               Nindo
             </Heading>
           </Link>
-          <Stack direction="row">
-            {platforms.map(({ icon: Icon, name, id, charts }, i) => (
-              <NavChartsItem icon={<Icon />} label={name} href={`/charts/${id}/${charts[0].id}`} key={i} />
-            ))}
-          </Stack>
+          <NavChartsItems />
           <Stack direction="row">
             <NavItem icon={<Fire />} href="/viral">
               Viral

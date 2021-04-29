@@ -24,10 +24,8 @@ const TopCardItem: FC<TopCardItemProps> = (props) => {
         </Center>
         <Stack direction="row" align="center" justify="space-between" w="full">
           <RouterLink href={`/artist/${artistId}`} passHref>
-            <LinkOverlay _hover={{ color: "purple.500" }}>
-              <Text fontWeight="bold" isTruncated>
-                {name}
-              </Text>
+            <LinkOverlay _hover={{ color: "purple.500" }} fontWeight="bold" isTruncated>
+              {name}
             </LinkOverlay>
           </RouterLink>
           <Text>{abbreviateNumber(value)}</Text>

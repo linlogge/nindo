@@ -2,14 +2,34 @@ import { Avatar } from "@chakra-ui/avatar";
 import { Button } from "@chakra-ui/button";
 import { Box, Container, Heading, Stack, Text, Wrap } from "@chakra-ui/layout";
 import { Tag } from "@chakra-ui/tag";
-import { Instagram, TikTok, Twitch, Twitter, YouTube } from "@components/icon";
 import DefaultLayout from "@components/layout";
 import { GetServerSideProps } from "next";
 import { useColorModeValue as mode } from "@chakra-ui/color-mode";
 import { NextSeo } from "next-seo";
+import { ChannelCard } from "@components/stat";
+import { FC, useState } from "react";
+import { getPlatformById, PlatformId } from "@lib/platforms";
+
+interface PlatformButtonProps {
+  platformId: PlatformId;
+  channel: any;
+  onClick: () => void;
+}
+
+const PlatformButton: FC<PlatformButtonProps> = ({ platformId, onClick, channel }) => {
+  const { icon: Icon, colorScheme, toReadableName } = getPlatformById(platformId);
+
+  return (
+    <Button colorScheme={colorScheme} variant="ghost" leftIcon={<Icon />} onClick={onClick}>
+      {toReadableName(channel)}
+    </Button>
+  );
+};
 
 export default function Artist({ artist }) {
   const { name, genres, avatarUrl, channels } = artist;
+
+  const [activeChannel, setActiveChannel] = useState(0);
 
   return (
     <>
@@ -32,48 +52,22 @@ export default function Artist({ artist }) {
                 </Stack>
               </Stack>
               <Wrap>
-                {channels.map((channel, i) => {
-                  switch (channel.platform) {
-                    case "youtube": {
-                      return (
-                        <Button colorScheme="red" variant="ghost" leftIcon={<YouTube />} key={i}>
-                          {channel.name}
-                        </Button>
-                      );
-                    }
-                    case "instagram": {
-                      return (
-                        <Button colorScheme="purple" variant="ghost" leftIcon={<Instagram />} key={i}>
-                          {channel.name}
-                        </Button>
-                      );
-                    }
-                    case "tiktok": {
-                      return (
-                        <Button colorScheme="pink" variant="ghost" leftIcon={<TikTok />} key={i}>
-                          {channel.name}
-                        </Button>
-                      );
-                    }
-                    case "twitter": {
-                      return (
-                        <Button colorScheme="blue" variant="ghost" leftIcon={<Twitter />} key={i}>
-                          {channel.name}
-                        </Button>
-                      );
-                    }
-                    case "twitch": {
-                      return (
-                        <Button colorScheme="purple" variant="ghost" leftIcon={<Twitch />} key={i}>
-                          {channel.name}
-                        </Button>
-                      );
-                    }
-                  }
-                })}
+                {channels.map((channel, i) => (
+                  <PlatformButton
+                    key={i}
+                    platformId={channel.platform}
+                    onClick={() => setActiveChannel(i)}
+                    channel={channel}
+                  />
+                ))}
               </Wrap>
             </Stack>
           </Box>
+        </Container>
+      </Box>
+      <Box as="section" mt="20">
+        <Container maxW="container.xl">
+          <ChannelCard channel={channels[activeChannel]} />
         </Container>
       </Box>
     </>

@@ -38,8 +38,8 @@ const platforms: Platform[] = [
       {
         name: "YouTube-Rang",
         id: "rank",
-      }
-    ]
+      },
+    ],
   },
   {
     name: "Instagram",
@@ -61,8 +61,8 @@ const platforms: Platform[] = [
       {
         name: "Instagram-Rang",
         id: "rank",
-      }
-    ]
+      },
+    ],
   },
   {
     name: "TikTok",
@@ -84,8 +84,8 @@ const platforms: Platform[] = [
       {
         name: "TikTok-Rang",
         id: "rank",
-      }
-    ]
+      },
+    ],
   },
   {
     name: "Twitter",
@@ -111,8 +111,8 @@ const platforms: Platform[] = [
       {
         name: "Twitter-Rang",
         id: "rank",
-      }
-    ]
+      },
+    ],
   },
   {
     name: "Twitch",
@@ -142,9 +142,9 @@ const platforms: Platform[] = [
       {
         name: "Twitch-Rang",
         id: "rank",
-      }
-    ]
-  }
+      },
+    ],
+  },
 ];
 
 export default platforms;

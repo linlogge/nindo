@@ -8,6 +8,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import PageNotFound from "pages/404";
 import platforms from "@config/platforms";
+import { NextSeo } from "next-seo";
 
 export default function Charts({ data }) {
   const router = useRouter();
@@ -17,12 +18,12 @@ export default function Charts({ data }) {
     return <PageNotFound />;
   }
 
-  const { charts, name, icon } = platforms.find((p) => p.id === platform[0])
-  const filterOption = charts.find((c) => c.id === platform[1])
-
+  const { charts, name, icon } = platforms.find((p) => p.id === platform[0]);
+  const filterOption = charts.find((c) => c.id === platform[1]);
 
   return (
     <>
+      <NextSeo title={`${name} Charts`}/>
       <Box as="section" mt="10">
         <Container maxW="container.xl">
           <Grid templateColumns="repeat(4, 1fr)" columnGap="10">
@@ -36,7 +37,9 @@ export default function Charts({ data }) {
                   {charts.map(({ name, id }) => (
                     <ListItem>
                       <RouterLink href={`/charts/${platform[0]}/${id}`} passHref>
-                        <Button as="a" colorScheme={id === platform[1] ? "purple" : undefined}>{name}</Button>
+                        <Button as="a" colorScheme={id === platform[1] ? "purple" : undefined}>
+                          {name}
+                        </Button>
                       </RouterLink>
                     </ListItem>
                   ))}
@@ -76,8 +79,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
       props: {
         data: null,
-      }
-    }
+      },
+    };
   }
 
   const data = await getData(`https://api.nindo.de/ranks/charts/${platform[0]}/${platform[1]}/big`);
@@ -94,9 +97,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   let paths = [];
   platforms.forEach((platform) => {
     platform.charts.forEach((chart) => {
-      paths.push([platform.id, chart.id])
-    })
-  })
+      paths.push([platform.id, chart.id]);
+    });
+  });
 
   return {
     paths: paths.map((platform) => {
